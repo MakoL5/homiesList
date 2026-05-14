@@ -81,22 +81,17 @@
                 <b class="StaffRole">List Owners</b>
 
                 <br>
-                <a target="_blank" href="https://www.youtube.com/@Makobaconator"> Mako</a>
+                <a target="_blank" href="https://www.youtube.com/@Makobaconator">👑 Mako</a>
                 <br>
                 <b class="StaffRole">List Admins</b>
-
                 <br>
                 <a target="_blank" href="#">Admin Name</a>
                 <br>
-
                 <b class="StaffRole">Head Coders</b>
-
                 <br>
-                <a target="_blank" href="https://www.youtube.com/@Makobaconator">Mako</a>
+                <a target="_blank" href="#">Coder Name</a>
                 <br>
-
                 <b class="StaffRole">List Moderators</b>
-
                 <br>
                 <a target="_blank" href="#">Moderator Name</a>
                 <br>
@@ -276,9 +271,13 @@
         for (var i = 0; i < list.length; i++) {
             var entry = list[i];
             if (entry.key != null) {
-                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`#${i + 1}: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).appendTo(list_node).click(function () { load(this); });
+                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`#${i + 1}: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).appendTo(list_node).click(function () {
+                    load(this);
+                });
             } else {
-                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`<strong>Legacy</strong>: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).appendTo(list_node).click(function () { load(this); });
+                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`<strong>Legacy</strong>: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).appendTo(list_node).click(function () {
+                    load(this);
+                });
             }
         }
         // handlers
