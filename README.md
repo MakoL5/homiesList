@@ -151,10 +151,6 @@ Default requirements are shown in the sidebar. Edit in `index.html`:
 </div>
 ```
 
-## 🚀 Version History
-
-- **v1.0.0** - Initial release with 3 sample challenges
-
 ## 💡 Tips
 
 1. **Test locally first** before pushing to GitHub
