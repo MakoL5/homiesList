@@ -22,7 +22,7 @@ const list = [
     more: "Additional creator info",
     desc: "Mako was Here!.",
     id: 140360900,
-    pass: N/A,
+    pass: ,
     percentToQualify: 100,
     verificationVid: "https://youtu.be/tpEaA0yUF_c",
     phacked: false,
