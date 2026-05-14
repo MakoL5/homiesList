@@ -250,50 +250,21 @@
         var l = getParameterByName('q', window.location.href) * 1 - 1;
         var list_node = $("#list");
         var record_node = $("#records-table")
-        var legacy_count = 0;
-        for (var i = 0; i < list.length; i++) {
-            var entry = list[i];
-            if (entry.key == null) {
-                legacy_count++;
-            }
-        }
+        
         $("#version-node").text("(v" + version[0] + "." + version[1] + "." + version[2] + ")");
-        list.sort(function (a, b) {
-            var legacy_count = 0;
-            for (var i = 0; i < list.length; i++) {
-                var entry = list[i];
-                if (entry.key == null) {
-                    legacy_count++;
-                }
-            }
-            var arank = 0;
-            var brank = 0;
-            if (a.key == null) {
-                arank = 150 + (legacy_count - a.legacyKey);
-            } else {
-                arank = (a.key) + 1;
-            }
-            if (b.key == null) {
-                brank = 150 + (legacy_count - b.legacyKey);
-            } else {
-                brank = (b.key) + 1;
-            }
-            return arank - brank;
-        });
+        
         for (var i = 0; i < list.length; i++) {
             var entry = list[i];
-            if (entry.key != null) {
-                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`#${i + 1}: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).click(function () {
-                    load(this);
-                });
-                list_node.append($(`<div>`));
-            } else {
-                $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`<strong>Legacy</strong>: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).click(function () {
-                    load(this);
-                });
-                list_node.append($(`<div>`));
-            }
+            var rank = i + 1; // Simple rank based on list position
+            var isLegacy = rank > 75; // Legacy if rank is 75 or below
+            var rankDisplay = isLegacy ? `<strong>Legacy</strong>` : `#${rank}`;
+            
+            $(`<div>`).addClass((l == -1 ? (i == 0) : (i == l)) ? 'entry selected' : 'entry').html(`${rankDisplay}: <strong>${entry.name}</strong> by <em class="author">${entry.author}</em>`).attr('value', i).click(function () {
+                load(this);
+            });
+            list_node.append($(`<div>`));
         }
+        
         // handlers
         var load = function (node) {
             var num;
@@ -313,12 +284,7 @@
                         .replace(/&t=\d+s/gi, '')
                         .replace(/https:\/\//gi, '')
                 }
-                var rank = 0;
-                if (entry.key == null) {
-                    rank = 150 + (legacy_count - entry.legacyKey);
-                } else {
-                    rank = (entry.key) + 1;
-                }
+                var rank = num + 1;
                 var hacked = "";
                 if (entry.hacked != null || entry.phacked != null) {
                     if (entry.hacked) {
@@ -327,7 +293,8 @@
                         hacked = " <span class='p-hacked'>POSSIBLY HACKED</span>";
                     }
                 }
-                $("#levelname").html((rank > 150 ? `` : `#` + rank + ` `) + entry.name + hacked);
+                var levelDisplayName = rank > 75 ? `Legacy: ${entry.name}` : `#${rank} ${entry.name}`;
+                $("#levelname").html(levelDisplayName + hacked);
                 var author = entry.author;
                 var final_author;
                 if (author.includes(' more ')) {
