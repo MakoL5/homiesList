@@ -338,7 +338,7 @@ header{
 }
 
 .hacked{
-  background: linear-gradient(135deg, #FF8686, #9595E2);
+  background: linear-gradient(135deg, #0019FF, #000000);
   color: white;
   font-weight: bold;
   font-size: 0.4em;
@@ -348,7 +348,7 @@ header{
 }
 
 .p-hacked {
-  background: linear-gradient(135deg, #FFB366, #D59595);
+  background: linear-gradient(135deg, #0019FF, #000000);
   color: white;
   font-weight: bold;
   font-size: 0.4em;
@@ -472,10 +472,10 @@ center {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, ##0019FF, #000000);
+  background: linear-gradient(90deg, #0019FF, #000000);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7575c2, #dd6666);
+  background: linear-gradient(180deg, #000000, #0019FF);
 }
