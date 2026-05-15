@@ -147,7 +147,7 @@ header{
 }
 
 #additional-information{
-  background: linear-gradient(180deg, #0019FF 0%, rgba(255, 134, 134, 0.8) 100%);
+  background: linear-gradient(90deg, #0019FF 0%, rgba(255, 134, 134, 0.8) 100%);
   position: fixed;
   top: 100px;
   right: 0;
@@ -194,12 +194,12 @@ header{
 }
 
 #info::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #856FFF, #0019FF);
+  background: linear-gradient(90deg, #856FFF, #0019FF);
   border-radius: 4px;
 }
 
 #info::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7575c2, #dd6666);
+  background: linear-gradient(90deg, #7575c2, #dd6666);
 }
 
 #inner-info, #inner-right-info{
