@@ -120,7 +120,7 @@ header{
 }
 
 #list{
-  background: linear-gradient(180deg, #856FFF 0%, rgba(149, 149, 226, 0.8) 100%);
+  background: linear-gradient(180deg, #0019FF 0%, rgba(149, 149, 226, 0.8) 100%);
   position: fixed;
   top: 100px;
   left: 0;
@@ -194,7 +194,7 @@ header{
 }
 
 #info::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #9595E2, #FF8686);
+  background: linear-gradient(180deg, #856FFF, #0019FF);
   border-radius: 4px;
 }
 
